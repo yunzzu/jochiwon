@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+    <div style="width: 300px; margin: 0 auto;">
+      <h4 style="text-align: center">회원가입</h4>
+      <br>
+      <form method="post" action="" style="font-size:1.3rem;">
+          {% csrf_token %}
+          <div>아이디 <input name="username" type="text" value=""></div>
+          <br>
+          <div>이메일 <input name="email" type="email" value=""></div>
+          <br>
+          <div>비밀번호 <input name="password1" type="password" value=""></div>
+          <br>
+          <div>비밀번호 확인 <input name="password2" type="password" value=""></div>
+          <br>
+          <div style="text-align:center">
+            <input class="btn btn-secondary btn-sm" type="submit" value="회원가입">
+          </div>
+      </form>
+    </div>
+
+{% endblock %}

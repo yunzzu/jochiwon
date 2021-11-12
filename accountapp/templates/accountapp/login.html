@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+    <div style="max-width: 300px; margin: 4rem auto">
+        <div style="text-align: center;"><h4><b>로그인</b></h4></div>
+        <br>
+        <div>
+            <form action="{% url 'accountapp:login' %}" method="POST">
+                {% csrf_token %}
+                <span>아이디 :   <input name="username" type="text"></span>
+                <br><br>
+                <span>비밀번호 :   <input name="password" type="password"></span>
+
+                <br><br>
+                <div style="text-align: center;">
+                    <input type="submit" class="btn btn-secondary btn-sm" value="로그인" style="margin-bottom:1rem;">
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

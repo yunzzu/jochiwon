@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+
+{% include 'head.html' %}
+
+<body style="font-family: 'NanumSquare_0';">
+    <br><br><br>
+    {% include 'header.html' %}
+
+    <br>
+    {% block content %}
+    <br><br>
+
+    {% endblock %}
+
+    <br><br><hr><br>
+    {% include 'footer.html' %}
+    <br><br><br>
+</body>
+</html>

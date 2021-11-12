@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style="text-align: center; max-width: fit-content; margin: auto;">
+
+    {% if target_user.profile %}
+        <img src="{{ target_user.profile.image.url }}" alt="" style="width: 20rem; border-radius: 5rem; margin: 1rem;">
+        <h6>{{ target_user.profile.nickname }}</h6>
+        <div style="font-size: 12px;">
+            {{ target_user.profile.message }}
+            {% if target_user == user %}
+                <a class="material-icons" style="color:lightslategrey;"
+                    href="{% url 'profileapp:update' pk=target_user.profile.pk %}">edit</a>
+            {% endif %}
+        </div>
+    {% else %}
+        {% if target_user == user %}
+            <a href="{% url 'profileapp:create' %}">Create...!</a>
+        {% else %}
+            <h10 style="margin: auto;">No Profile!</h10>
+        {% endif %}
+    {% endif %}
+
+    <br><br><br><br>
+
+    <br><br>
+
+    <div style="font-size: 0.7rem;">
+        {% if target_user == user %}
+        <span>
+            <a href="{% url 'accountapp:update' pk=user.pk %}" style="border: 1px solid darkgrey; border-radius: 30%;">Edit Info</a>
+        </span>
+        　
+        <span>
+            <a href="{% url 'accountapp:delete' pk=user.pk %}" style="border: 1px solid darkgrey; border-radius: 30%;">Withdrawal</a>
+        </span>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
